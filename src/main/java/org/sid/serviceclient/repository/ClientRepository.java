@@ -1,4 +1,4 @@
-package org.sid.serviceclient.entities.repository;
+package org.sid.serviceclient.repository;
 
 import org.sid.serviceclient.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;

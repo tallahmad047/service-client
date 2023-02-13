@@ -1,7 +1,7 @@
 package org.sid.serviceclient;
 
 import org.sid.serviceclient.entities.Client;
-import org.sid.serviceclient.entities.repository.ClientRepository;
+import org.sid.serviceclient.repository.ClientRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
