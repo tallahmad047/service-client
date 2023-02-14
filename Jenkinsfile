@@ -44,7 +44,7 @@ pipeline{
 
                             steps {
                               withDockerRegistry([credentialsId: "groupe3aws" ,url:"" ]){
-                              bat 'docker push tallahmad047/nguith2022:groupe3'
+                              bat 'docker push tallahmad/nguith2022:groupe3'
                               }
                             }
                           }
