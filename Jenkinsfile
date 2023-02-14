@@ -29,13 +29,13 @@ pipeline{
          stage('Builddocker') {
                 steps {
                               // Build the Docker image
-                             bat 'docker build -t tallahmad/Nguith2022  .'
+                             bat 'docker build -t tallahmad/nguith2022  .'
                    }
                       }
                   stage('dockertag') {
                            steps {
                                                      // Build the Docker image
-                             bat 'docker tag tallahmad/Nguith2022  tallahmad/Nguith2022:groupe3'
+                             bat 'docker tag tallahmad/nguith2022  tallahmad/nguith2022:groupe3'
                                     }
                                   }
 
@@ -44,7 +44,7 @@ pipeline{
 
                             steps {
                               withDockerRegistry([credentialsId: "groupe3aws" ,url:"" ]){
-                              bat 'docker push tallahmad047/Nguith2022:groupe3'
+                              bat 'docker push tallahmad047/nguith2022:groupe3'
                               }
                             }
                           }
