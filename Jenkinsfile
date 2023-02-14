@@ -12,7 +12,7 @@ pipeline{
        stage ('Build') {
                   steps{
 
-                      bat 'mvn package DskipTests'
+                      bat 'mvn package -DskipTests'
                   }
               }
 
