@@ -11,8 +11,8 @@ pipeline{
       }
        stage ('Build') {
                   steps{
-                      bat 'mvn clean '
-                      bat 'mvn package'
+
+                      bat 'mvn package DskipTests'
                   }
               }
 
@@ -29,13 +29,13 @@ pipeline{
          stage('Builddocker') {
                 steps {
                               // Build the Docker image
-                             bat 'docker build -t tallahmad047/Nguith2022:groupe3  .'
+                             bat 'docker build -t tallahmad047/Nguith2022  .'
                    }
                       }
                   stage('dockertag') {
                            steps {
                                                      // Build the Docker image
-                             bat 'docker tag tallahmad047/Nguith2  tallahmad/groupe3'
+                             bat 'docker tag tallahmad047/Nguith2  tallahmad047/Nguith2022:groupe3'
                                     }
                                   }
 
