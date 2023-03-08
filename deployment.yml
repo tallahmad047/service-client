@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pservice-client-deployment
+  name: service-client-deployment
   labels:
-    app: service-client-deployment
+    app: service-client
 spec:
   replicas: 2
   selector:
@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app: service-client-deployment
+        app: service-client
     spec:
       containers:
         - name: service-client

@@ -29,13 +29,13 @@ pipeline{
          stage('Builddocker') {
                 steps {
                               // Build the Docker image
-                             bat 'docker build -t tallahmad/nguith2022  .'
+                             bat 'docker build -t tallahmad/nguith  .'
                    }
                       }
                   stage('dockertag') {
                            steps {
                                                      // Build the Docker image
-                             bat 'docker tag tallahmad/nguith2022  tallahmad/nguith2022:groupe3'
+                             bat 'docker tag tallahmad/nguith2022  tallahmad/nguith:groupe3'
                                     }
                                   }
 
@@ -44,7 +44,7 @@ pipeline{
 
                             steps {
                               withDockerRegistry([credentialsId: "groupe3aws" ,url:"" ]){
-                              bat 'docker push tallahmad/nguith2022:groupe3'
+                              bat 'docker push tallahmad/nguith:groupe3'
                               }
                             }
                           }
@@ -53,11 +53,11 @@ pipeline{
                           script{
                                withDockerRegistry([credentialsId: "groupe3aws" ,url:"" ]) {
                                                      // Récupérer l'image depuis Docker Hub
-                                                     dockerImage = docker.image('tallahmad/nguith2022:groupe3')
+                                                     dockerImage = docker.image('tallahmad/nguith:groupe3')
                                                      dockerImage.pull()
 
                                                      // Déployer l'image sur Kubernetes
-                                                    bat "kubectl apply -f deployment.yml"
+                                                    //bat "kubectl apply -f deployment.yml"
                                                  }
                           }
                         }
