@@ -57,7 +57,7 @@ pipeline{
                                                      dockerImage.pull()
 
                                                      // Déployer l'image sur Kubernetes
-                                                    // sh "kubectl apply -f fichier_deployment.yaml"
+                                                    bat "kubectl apply -f deployment.yml"
                                                  }
                           }
                         }
