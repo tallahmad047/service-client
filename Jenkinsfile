@@ -48,6 +48,21 @@ pipeline{
                               }
                             }
                           }
+                      stage ('deployment kub'){
+                        steps{
+                          script{
+                               withDockerRegistry([credentialsId: "groupe3aws" ,url:"" ]) {
+                                                     // Récupérer l'image depuis Docker Hub
+                                                     dockerImage = docker.image('tallahmad/nguith2022:groupe3')
+                                                     dockerImage.pull()
+
+                                                     // Déployer l'image sur Kubernetes
+                                                    // sh "kubectl apply -f fichier_deployment.yaml"
+                                                 }
+                          }
+                        }
+
+                      }
 
           } // stages
 
