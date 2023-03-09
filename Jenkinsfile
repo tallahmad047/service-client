@@ -29,13 +29,13 @@ pipeline{
          stage('Builddocker') {
                 steps {
                               // Build the Docker image
-                             bat 'docker build -t tallahmad/nguith  .'
+                             bat 'docker build -t tallahmad/test  .'
                    }
                       }
                   stage('dockertag') {
                            steps {
                                                      // Build the Docker image
-                             bat 'docker tag tallahmad/nguith2022  tallahmad/test:groupe3'
+                             bat 'docker tag tallahmad/nguith2022  tallahmad/test:groupe1'
                                     }
                                   }
 
@@ -44,7 +44,7 @@ pipeline{
 
                             steps {
                               withDockerRegistry([credentialsId: "groupe3aws" ,url:"" ]){
-                              bat 'docker push tallahmad/test:groupe3'
+                              bat 'docker push tallahmad/test:groupe1'
                               }
                             }
                           }
@@ -53,7 +53,7 @@ pipeline{
                           script{
                                withDockerRegistry([credentialsId: "groupe3aws" ,url:"" ]) {
                                                      // Récupérer l'image depuis Docker Hub
-                                                     dockerImage = docker.image('tallahmad/test:groupe3')
+                                                     dockerImage = docker.image('tallahmad/test:groupe1')
                                                      dockerImage.pull()
 
                                                      // Déployer l'image sur Kubernetes
